@@ -5,7 +5,7 @@ import { GlobalContext } from "../context"
 
 export default function Navbar() {
 
-    const { searchParam, setSearchParam } = useContext(GlobalContext)
+    const { searchParam, setSearchParam, handleSubmit } = useContext(GlobalContext)
     console.log(searchParam)
     return <nav className="flex justify-between items-center py-8 container mx-auto flex-col lg:flex-row gap-5 lg:gap-0">
         <h2 className="text-2x1 font-semibold">
@@ -13,7 +13,7 @@ export default function Navbar() {
                 to={'/'}
                 className="text-black hover:text-gray-700 duration-300">FoodRecipe</NavLink>
         </h2>
-        <form>
+        <form onSubmit={handleSubmit}>
             <input type="text"
                 name="search"
                 value={searchParam}
